@@ -8,15 +8,13 @@ app.use(express.json());
 const errorLogger =(err,res,req,next)=>{
     console.log(err)
     (err);
-    
-    const errorHandler = (err,req,res,next)=>{
-        res.status(400).json({
-            message: err.message,
-    })
-
-    }
 };
+const errorHandler = (err,req,res,next)=>{
+    res.status(400).json({
+        message: err.message
+})
 
+}
 const personas = [
     {
         id:1,
@@ -67,8 +65,8 @@ app.get("/api/v1/products/:product",(req,res)=>{
 });
 
 app.post("/api/v1/products",(req,res)=>{
-    const nuevaPersonas =req.body;
-    personas.push(nuevapersonas);
+    const Personas =req.body;
+    personas.push(personas);
     res.json(personas);
 
 });
