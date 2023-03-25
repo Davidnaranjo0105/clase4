@@ -11,11 +11,11 @@ const errorLogger =(err,res,req,next)=>{
     
     const errorHandler = (err,req,res,next)=>{
         res.status(400).json({
-            message. err
-    });
+            message: err.message,
+    })
 
     }
-}
+};
 
 const personas = [
     {
@@ -54,23 +54,24 @@ app.get("/api/v1/products/:productId",(req,res,next) => {
     res.json(personas);
 });
 
-app.get("/api/v1/products/:productId",(req,res)=>{
+app.get("/api/v1/products/:product",(req,res)=>{
     const {personasId} = req.params;
     const personasIdINT = parseInt(personasId);
     const personas = personas.find((personas)=> personas.id === personasIdINT);
     console.log(req.params);
     if (!personas){
-        throw new
+        throw new Error('no se encuentra la persona ');
     }
+    console.log(req.params)
     res.json({})
 });
 
 app.post("/api/v1/products",(req,res)=>{
-    const personas =req.body;
-    personas.push(personas);
-    res.json(personas)
+    const nuevaPersonas =req.body;
+    personas.push(nuevapersonas);
+    res.json(personas);
 
-})
+});
 app.use(errorLogger);
 app.use(errorHandler);
 
