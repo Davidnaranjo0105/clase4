@@ -1,5 +1,5 @@
-const { query } = require("express");
-const express = require("express");
+const { query } = require('express');
+const express = require('express');
 
 const PORT = 6000;
 
@@ -7,8 +7,9 @@ const app = express();
 app.use(express.json());
 const errorLogger =(err,res,req,next)=>{
     console.log(err)
-    (err);
+    next(err);
 };
+
 const errorHandler = (err,req,res,next)=>{
     res.status(400).json({
         message: err.message
@@ -64,7 +65,7 @@ app.get("/api/v1/products/:product",(req,res)=>{
     res.json({})
 });
 
-app.post("/api/v1/products",(req,res)=>{
+app.post('/api/v1/products',(req,res)=>{
     const Personas =req.body;
     personas.push(personas);
     res.json(personas);
