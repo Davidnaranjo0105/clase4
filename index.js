@@ -1,7 +1,7 @@
 const { query } = require('express');
 const express = require('express');
 
-const PORT = 6000;
+const PORT =6000;
 
 const app = express();
 app.use(express.json());
@@ -78,5 +78,6 @@ app.use(errorHandler);
 app.listen(PORT,()=>{
     console.log`escuhando en http://localhost:${PORT}`
 });
- 
+console.log("fin")
+
 
